@@ -1,24 +1,31 @@
 const expect = require('chai').expect;
 
-//Sample JUnit test
-function sum(arr) {
-    let res = 0;
-    for (let i = 0; i < arr.length; i++) {
-        res += arr[i];
-    }
-    return res;
+// Beispiel-Funktion zum Testen
+function sum(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('Inputs must be numbers');
+  }
+  return a + b;
 }
 
 describe('#sum()', function () {
+  it('should add numbers', function () {
+    expect(sum(2, 3)).to.equal(5);
+  });
 
-    //  if needed logic before each test run
-    beforeEach(function () {
+  it('should handle negative numbers', function () {
+    expect(sum(-2, 3)).to.equal(1);
+  });
 
-    })
+  it('should handle zero', function () {
+    expect(sum(0, 0)).to.equal(0);
+  });
 
-    // test a functionality
-    it('should add numbers', function () {
-        expect(sum([1, 2, 3, 4, 5])).to.equal(15);
-    })
+  it('should handle decimal numbers', function () {
+    expect(sum(2.5, 3.5)).to.equal(6);
+  });
 
+  it('should throw error if input is not a number', function () {
+    expect(() => sum('a', 2)).to.throw(Error);
+  });
 });

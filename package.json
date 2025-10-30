@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha tests/*.js --exit",
+    "test": "mocha **/tests/*.js --exit",
     "test_with_codeCoverage": "nyc --reporter=text mocha tests/*.js"
   },
   "repository": {
