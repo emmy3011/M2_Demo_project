@@ -21,16 +21,16 @@ describe('fahrenheitToCelcius()', () => {
 });
 
 describe('getGreetingDependOnTime()', () => {
-    it('should return "Guten Abend" at 12:00 (between 06:00 and 22:00)', () => {
+    it('should return "Guten Morgen" at 12:00 (between 06:00 and 22:00)', () => {
         const d = new Date('2020-01-01 12:00');
         const result = api.getGreetingDependOnTime(d);
-        expect(result).to.equal('Guten Abend');
+        expect(result).to.equal('Guten Morgen');
     });
 
-    it('should return "Guten Morgen" at 23:00 (>= 22:00)', () => {
+    it('should return "Guten Abend" at 23:00 (>= 22:00)', () => {
         const d = new Date('2020-01-01 23:00');
         const result = api.getGreetingDependOnTime(d);
-        expect(result).to.equal('Guten Morgen');
+        expect(result).to.equal('Guten Abend');
     });
 
     it('should return "Guten Morgen" at 05:00 (< 06:00)', () => {
